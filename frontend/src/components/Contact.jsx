@@ -23,15 +23,13 @@ function Contact() {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ type: 'idle', message: '' });
 
-  const apiBaseUrl = useMemo(
-    () => import.meta.env.VITE_API_URL || 'http://localhost:5000',
-    []
-  );
+  const apiBaseUrl = useMemo(() => import.meta.env.VITE_API_URL || 'http://localhost:5000', []);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((current) => ({ ...current, [name]: value }));
     setErrors((current) => ({ ...current, [name]: '' }));
+
     if (status.type !== 'idle') {
       setStatus({ type: 'idle', message: '' });
     }
@@ -98,48 +96,41 @@ function Contact() {
 
   return (
     <section id="contact" className="py-20 sm:py-24">
-      <div className="section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="glass-panel rounded-[28px] p-6 sm:p-8 border border-white/10 bg-slate-900/60 backdrop-blur-xl">
-            <span className="section-kicker text-xs font-semibold uppercase tracking-wider text-sky-400">
-              Consultation
-            </span>
-            <h2 className="section-heading text-3xl font-bold text-white mt-2">
-              Start your next strategic transformation.
-            </h2>
+          <div className="glass-panel p-6 sm:p-8">
+            <span className="section-kicker">Consultation</span>
+            <h2 className="section-heading text-3xl sm:text-4xl">Start your next strategic transformation.</h2>
             <p className="section-copy mt-4 max-w-md text-slate-300">
-              Share your business challenge and our enterprise specialists will map the right path for security, software delivery, cloud modernization, or AI enablement.
+              Share your challenge and our specialists will map the right path for engineering, security, cloud modernization, or AI enablement.
             </p>
 
             <div className="mt-8 space-y-4 text-sm text-slate-300">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/40 p-3">
-                <Mail className="h-4 w-4 text-sky-300" />
-                <a href="mailto:support@celestrixitservices.in" className="hover:text-sky-300 transition-colors">
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/45 p-3.5">
+                <Mail className="h-4 w-4 text-emerald-300" />
+                <a href="mailto:support@celestrixitservices.in" className="transition-colors hover:text-emerald-200">
                   support@celestrixitservices.in
                 </a>
               </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/40 p-3">
-                <MessageSquareText className="h-4 w-4 text-sky-300" />
-                Secure, confidential project discussions
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/45 p-3.5">
+                <MessageSquareText className="h-4 w-4 text-emerald-300" />
+                Secure, confidential project reviews
               </div>
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="glass-panel rounded-[28px] p-6 sm:p-8 border border-white/10 bg-slate-900/60 backdrop-blur-xl"
-          >
+          <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8">
             <div className="grid gap-5 sm:grid-cols-2">
-              <div className="sm:col-span-1">
+              <div>
                 <label className="mb-2 block text-sm font-medium text-slate-200">Name</label>
                 <div className="relative">
-                  <UserRound className="pointer-events-none absolute left-3 top-3.5 h-4 w-4 text-slate-400" />
+                  <UserRound className="pointer-events-none absolute left-3.5 top-3.5 h-4 w-4 text-slate-400" />
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-white/10 bg-slate-950/50 py-3 pl-10 pr-3 text-sm text-white outline-none transition focus:border-indigo-400"
+                    className="input-shell pl-11"
                     placeholder="John Morgan"
                   />
                 </div>
@@ -153,20 +144,20 @@ function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-3 text-sm text-white outline-none transition focus:border-indigo-400"
+                  className="input-shell"
                   placeholder="john@company.com"
                 />
                 {errors.email ? <p className="mt-2 text-xs text-rose-300">{errors.email}</p> : null}
               </div>
 
-              <div className="sm:col-span-1">
+              <div>
                 <label className="mb-2 block text-sm font-medium text-slate-200">Company</label>
                 <input
                   type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-3 text-sm text-white outline-none transition focus:border-indigo-400"
+                  className="input-shell"
                   placeholder="Northgate Holdings"
                 />
               </div>
@@ -177,7 +168,7 @@ function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-3 text-sm text-white outline-none transition focus:border-indigo-400"
+                  className="input-shell"
                 >
                   {defaultServices.map((service) => (
                     <option key={service} value={service} className="bg-slate-900 text-white">
@@ -194,7 +185,7 @@ function Contact() {
                   value={formData.projectBrief}
                   onChange={handleChange}
                   rows="5"
-                  className="w-full rounded-xl border border-white/10 bg-slate-950/50 px-3 py-3 text-sm text-white outline-none transition focus:border-indigo-400"
+                  className="input-shell resize-none"
                   placeholder="Tell us about your environment, goals, constraints, and timeline."
                 />
                 {errors.projectBrief ? (
@@ -206,7 +197,7 @@ function Contact() {
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:bg-indigo-500 disabled:opacity-50"
+                className="primary-btn w-full sm:w-auto rounded-2xl px-6 py-3.5"
                 disabled={status.type === 'loading'}
               >
                 {status.type === 'loading' ? 'Sending...' : 'Send Inquiry'}
@@ -220,7 +211,7 @@ function Contact() {
                       ? 'border border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
                       : status.type === 'error'
                       ? 'border border-rose-500/30 bg-rose-500/10 text-rose-200'
-                      : 'border border-sky-500/30 bg-sky-500/10 text-sky-200'
+                      : 'border border-cyan-500/30 bg-cyan-500/10 text-cyan-200'
                   }`}
                 >
                   {status.type === 'success' ? <CheckCircle2 className="h-4 w-4" /> : null}

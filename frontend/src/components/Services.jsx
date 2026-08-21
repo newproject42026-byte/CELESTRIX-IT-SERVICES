@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   ArrowUpRight,
@@ -24,44 +23,44 @@ function Services({ services = [], loading = false, error = '' }) {
   const fallbackServices = [
     {
       id: 1,
-      title: 'Cloud & Infrastructure Solutions',
+      title: 'Cloud Architecture & Kubernetes DevOps',
       description:
-        'Multi-cloud architecture, DevOps automation, cloud migration, and secure 24/7 infrastructure management.',
+        'Multi-cloud modernization, resilient platform engineering, and automation that keep critical systems available at scale.',
       icon: 'Cloud',
     },
     {
       id: 2,
-      title: 'Full-Stack Software Engineering',
+      title: 'High-Scale Full-Stack & Microservices',
       description:
-        'Bespoke web applications, high-throughput microservices, API architecture, and scalable SaaS solutions.',
+        'Custom product engineering for SaaS platforms, distributed APIs, and digital experiences designed for growth.',
       icon: 'Code2',
     },
     {
       id: 3,
-      title: 'AI & Data Intelligence',
+      title: 'Enterprise Generative AI & Data Pipelines',
       description:
-        'Enterprise machine learning models, predictive data analytics, and autonomous process pipelines.',
+        'AI strategy, LLM integrations, and data orchestration that convert fragmented information into operational intelligence.',
       icon: 'BrainCircuit',
     },
     {
       id: 4,
-      title: 'Cybersecurity & Compliance',
+      title: 'Zero-Trust Cybersecurity & Penetration Audits',
       description:
-        'Zero-trust network architecture, penetration testing, endpoint threat monitoring, and regulatory compliance.',
+        'Risk reduction through security architecture, threat modeling, compliance controls, and continuous monitoring.',
       icon: 'ShieldCheck',
     },
     {
       id: 5,
-      title: 'Mobile App Development',
+      title: 'Cross-Platform Mobile Applications',
       description:
-        'High-performance native and cross-platform mobile apps for iOS and Android built with modern frameworks.',
+        'Customer-centric mobile products across iOS and Android built for usability, performance, and sustained engagement.',
       icon: 'Smartphone',
     },
     {
       id: 6,
-      title: 'IT Consulting & Digital Strategy',
+      title: 'Strategic IT Advisory & Legacy Overhauls',
       description:
-        'Strategic roadmapping, legacy modernization, IT audit, and technology transformation consulting.',
+        'Executive technology planning, modernization roadmaps, and transformation initiatives aligned to business outcomes.',
       icon: 'BriefcaseBusiness',
     },
   ];
@@ -72,9 +71,9 @@ function Services({ services = [], loading = false, error = '' }) {
   const serviceTechMap = {
     1: ['AWS', 'Terraform', 'Kubernetes', 'GitHub Actions', 'Azure Monitor'],
     2: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'REST APIs'],
-    3: ['Python', 'TensorFlow', 'Power BI', 'Spark', 'Kafka', 'MLflow'],
-    4: ['Zero Trust', 'Sentinel', 'WAF', 'IAM', 'SIEM', 'Compliance Audits'],
-    5: ['React Native', 'Flutter', 'iOS', 'Android', 'Firebase', 'App Store'],
+    3: ['Python', 'LLM', 'Data Lakes', 'Spark', 'Kafka', 'Power BI'],
+    4: ['Zero Trust', 'WAF', 'IAM', 'SIEM', 'Pen Tests', 'Compliance'],
+    5: ['React Native', 'Flutter', 'iOS', 'Android', 'App Store', 'Firebase'],
     6: ['Architecture Review', 'Roadmaps', 'Cloud Strategy', 'Digital Transformation', 'Risk Analysis'],
   };
 
@@ -82,10 +81,10 @@ function Services({ services = [], loading = false, error = '' }) {
     <section id="services" className="py-20 sm:py-24">
       <div className="section-shell">
         <div className="max-w-3xl">
-          <span className="section-kicker">Core services</span>
-          <h2 className="section-heading">Technology platforms built for durable business growth.</h2>
+          <span className="section-kicker">Core capabilities</span>
+          <h2 className="section-heading">Built for enterprises that need smarter systems, faster execution, and resilient scale.</h2>
           <p className="section-copy">
-            From infrastructure transformation to AI acceleration, we help enterprise teams modernize architecture, reduce operational risk, and deliver measurable digital outcomes.
+            From mission-critical infrastructure to AI-driven workflows, we turn technology complexity into operational clarity and measurable business value.
           </p>
         </div>
 
@@ -98,11 +97,8 @@ function Services({ services = [], loading = false, error = '' }) {
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {loading
             ? Array.from({ length: 6 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="glass-panel animate-pulse rounded-[24px] border border-white/10 p-6"
-                >
-                  <div className="h-12 w-12 rounded-xl bg-slate-700/80" />
+                <div key={index} className="glass-panel animate-pulse rounded-[26px] border border-white/10 p-6">
+                  <div className="h-12 w-12 rounded-2xl bg-slate-700/80" />
                   <div className="mt-6 h-5 w-2/3 rounded bg-slate-700/80" />
                   <div className="mt-4 space-y-2">
                     <div className="h-3 w-full rounded bg-slate-700/80" />
@@ -118,43 +114,45 @@ function Services({ services = [], loading = false, error = '' }) {
                 return (
                   <article
                     key={service.id}
-                    className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-slate-900/40 p-6 shadow-[0_25px_60px_rgba(15,23,42,0.45)] transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40 hover:bg-slate-900/60"
+                    className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0d1520]/80 p-6 shadow-[0_25px_70px_rgba(2,6,23,0.52)] transition duration-300 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-[0_0_0_1px_rgba(16,185,129,0.25)]"
                   >
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent" />
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-sky-400/30 bg-gradient-to-br from-sky-500/15 to-indigo-500/20 text-sky-300">
-                      <Icon className="h-6 w-6" />
-                    </div>
-
-                    <h3 className="mt-6 text-xl font-bold text-white">{service.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
-
-                    <button
-                      type="button"
-                      onClick={() => setActiveService(isOpen ? null : service.id)}
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition hover:text-indigo-200"
-                    >
-                      Strategy overview
-                      <ArrowUpRight className="h-4 w-4" />
-                    </button>
-
-                    {isOpen ? (
-                      <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/40 p-4">
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-                          Technologies used
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                          {(serviceTechMap[service.id] || ['Cloud', 'Automation', 'Security']).map((tech) => (
-                            <span
-                              key={tech}
-                              className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-500/10 px-2.5 py-1.5 text-xs font-medium text-sky-100"
-                            >
-                              <CheckCircle2 className="h-3.5 w-3.5 text-sky-300" />
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.2),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(6,182,212,0.18),transparent_35%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="relative">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/15 via-cyan-500/10 to-violet-500/15 text-emerald-200">
+                        <Icon className="h-6 w-6" />
                       </div>
-                    ) : null}
+
+                      <h3 className="mt-6 text-xl font-bold text-white">{service.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
+
+                      <button
+                        type="button"
+                        onClick={() => setActiveService(isOpen ? null : service.id)}
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-200 transition hover:text-cyan-200"
+                      >
+                        Strategy overview
+                        <ArrowUpRight className="h-4 w-4" />
+                      </button>
+
+                      {isOpen ? (
+                        <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                          <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                            Core stack
+                          </p>
+                          <div className="flex flex-wrap gap-2">
+                            {(serviceTechMap[service.id] || ['Cloud', 'Automation', 'Security']).map((tech) => (
+                              <span
+                                key={tech}
+                                className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/8 px-2.5 py-1.5 text-[11px] font-medium text-emerald-100"
+                              >
+                                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-300" />
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
                   </article>
                 );
               })}
