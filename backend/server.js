@@ -4,7 +4,7 @@ const cors = require('cors');
 const { Resend } = require('resend');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 
 // Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);
