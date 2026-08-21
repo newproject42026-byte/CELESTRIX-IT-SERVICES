@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0a0d17] text-slate-100 selection:bg-indigo-500 selection:text-white">
+    <div className="relative min-h-screen bg-[#fafafc] text-slate-900 selection:bg-cyan-500 selection:text-white">
       <Background3D />
       <div className="relative z-10">
         <Navbar />

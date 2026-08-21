@@ -110,7 +110,7 @@ const Background3D = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 opacity-80" />;
+  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 opacity-40" />;
 };
 
 export default Background3D;

@@ -52,43 +52,43 @@ function Projects() {
             return (
               <article
                 key={project.id}
-                className="glass-panel overflow-hidden rounded-[28px] p-5 transition duration-300 hover:-translate-y-1 hover:border-indigo-400/40"
+                className="glass-panel overflow-hidden rounded-[28px] p-5 transition duration-300 hover:-translate-y-1 hover:border-cyan-200"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full border border-indigo-400/30 bg-indigo-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-indigo-200">
+                  <span className="rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-700">
                     {project.category}
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-sky-300" />
+                  <ArrowUpRight className="h-4 w-4 text-cyan-700" />
                 </div>
 
-                <h3 className="mt-5 text-2xl font-bold text-white">{project.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">{project.summary}</p>
+                <h3 className="mt-5 text-2xl font-bold text-slate-900">{project.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{project.summary}</p>
 
-                <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-200">
+                <div className="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700">
                   {project.impact}
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setActiveProject(isOpen ? null : project.id)}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-300 transition hover:text-indigo-200"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 transition hover:text-slate-900"
                 >
                   Strategy overview
                   <ArrowUpRight className="h-4 w-4" />
                 </button>
 
                 {isOpen ? (
-                  <div className="mt-5 rounded-2xl border border-white/10 bg-slate-950/40 p-4">
-                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                  <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                       Technologies used
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-500/10 px-2.5 py-1.5 text-xs font-medium text-sky-100"
+                          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700"
                         >
-                          <CheckCircle2 className="h-3.5 w-3.5 text-sky-300" />
+                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                           {technology}
                         </span>
                       ))}

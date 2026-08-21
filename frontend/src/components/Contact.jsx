@@ -101,19 +101,19 @@ function Contact() {
           <div className="glass-panel p-6 sm:p-8">
             <span className="section-kicker">Consultation</span>
             <h2 className="section-heading text-3xl sm:text-4xl">Start your next strategic transformation.</h2>
-            <p className="section-copy mt-4 max-w-md text-slate-300">
+            <p className="section-copy mt-4 max-w-md text-slate-600">
               Share your challenge and our specialists will map the right path for engineering, security, cloud modernization, or AI enablement.
             </p>
 
-            <div className="mt-8 space-y-4 text-sm text-slate-300">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/45 p-3.5">
-                <Mail className="h-4 w-4 text-emerald-300" />
-                <a href="mailto:support@celestrixitservices.in" className="transition-colors hover:text-emerald-200">
+            <div className="mt-8 space-y-4 text-sm text-slate-600">
+              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3.5">
+                <Mail className="h-4 w-4 text-cyan-700" />
+                <a href="mailto:support@celestrixitservices.in" className="transition-colors hover:text-cyan-700">
                   support@celestrixitservices.in
                 </a>
               </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/45 p-3.5">
-                <MessageSquareText className="h-4 w-4 text-emerald-300" />
+              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3.5">
+                <MessageSquareText className="h-4 w-4 text-cyan-700" />
                 Secure, confidential project reviews
               </div>
             </div>
