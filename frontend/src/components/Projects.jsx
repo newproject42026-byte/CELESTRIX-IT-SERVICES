@@ -1,109 +1,119 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, GraduationCap, Clock, Building2, Code2 } from 'lucide-react';
 
 const projects = [
   {
-    id: 1,
-    title: 'NexaCore Cloud Platform',
-    category: 'Cloud Transformation',
-    summary:
-      'A distributed enterprise cloud modernization program that unified infrastructure, observability, and release automation across five business units.',
-    impact: 'Reduced deployment time by 61% while improving platform uptime to 99.99%.',
-    technologies: ['AWS', 'Terraform', 'Kubernetes', 'GitHub Actions', 'Prometheus', 'React'],
-  },
-  {
-    id: 2,
-    title: 'VertexGuard Security Suite',
-    category: 'Cybersecurity',
-    summary:
-      'A zero-trust security orchestration platform built for regulated environments that require rapid policy enforcement and incident response.',
-    impact: 'Cut incident response time by 74% and delivered full audit visibility across the estate.',
-    technologies: ['Azure', 'Zero Trust', 'SIEM', 'Python', 'Power BI', 'Docker'],
-  },
-  {
-    id: 3,
-    title: 'PulseOne Analytics Engine',
-    category: 'AI & Data Intelligence',
-    summary:
-      'An AI-powered forecasting and operational intelligence platform that translated fragmented business data into executive dashboards and predictive alerts.',
-    impact: 'Enabled 3x faster decision cycles with stronger demand planning and forecasting accuracy.',
-    technologies: ['Python', 'Kafka', 'Spark', 'PostgreSQL', 'TensorFlow', 'Node.js'],
+    id: 'srisai-model-school',
+    title: 'Srisai Model School',
+    subtitle: 'School Website & Web Application',
+    description:
+      'Developing a modern, high-performance website and web application for Srisai Model School to establish a professional digital presence, streamline communications, and make academic updates easily accessible.',
+    status: 'In Progress',
+    industry: 'Education',
+    type: 'Web Development',
+    developer: 'Celestrix IT Services',
+    icon: GraduationCap,
+    highlights: [
+      'Responsive school portal & news updates',
+      'Curriculum & admissions digital showcase',
+      'Optimized for fast mobile loading & accessibility',
+    ],
   },
 ];
 
 function Projects() {
-  const [activeProject, setActiveProject] = useState(1);
-
   return (
-    <section id="projects" className="py-20 sm:py-24">
-      <div className="section-shell">
-        <div className="max-w-3xl">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
-            Our Projects
+    <section id="projects" className="py-24 bg-white border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200 text-xs font-bold uppercase tracking-wider">
+            Featured Engagements
           </span>
-          <h2 className="text-3xl font-extrabold tracking-[-0.05em] text-slate-900 sm:text-4xl lg:text-5xl">
-            Case studies that move organizations from complexity to control.
+          <h2 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+            Engineering digital solutions that deliver real-world impact.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-            We deliver digital programs that combine engineering depth, strategic alignment, and secure execution across cloud, data, and product transformation.
+          <p className="mt-5 text-base sm:text-lg leading-relaxed text-slate-600">
+            A look into our ongoing software engineering, web application development, and platform modernization initiatives.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 xl:grid-cols-3">
+        {/* Projects Grid */}
+        <div className="grid gap-8 lg:grid-cols-2">
           {projects.map((project) => {
-            const isOpen = activeProject === project.id;
-
+            const Icon = project.icon;
             return (
-              <article
+              <div
                 key={project.id}
-                className="group overflow-hidden rounded-3xl border border-slate-200/80 bg-white p-5 shadow-lg shadow-slate-200/40 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl"
+                className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#FAFAFC] p-8 sm:p-10 shadow-sm transition duration-300 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/50"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-teal-700">
-                    {project.category}
-                  </span>
-                  <ArrowUpRight className="h-4 w-4 text-teal-700" />
-                </div>
+                <div>
+                  {/* Status & Industry Badges */}
+                  <div className="flex flex-wrap items-center gap-2 mb-6">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">
+                      <Clock className="h-3.5 w-3.5" />
+                      {project.status}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium">
+                      <Building2 className="h-3.5 w-3.5" />
+                      {project.industry}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium">
+                      <Code2 className="h-3.5 w-3.5" />
+                      {project.type}
+                    </span>
+                  </div>
 
-                <h3 className="mt-5 text-xl font-bold text-slate-900 sm:text-[1.35rem]">{project.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.summary}</p>
-
-                <div className="mt-5 rounded-2xl border border-emerald-200/70 bg-emerald-50/60 p-4 text-xs font-medium text-emerald-900 sm:text-sm">
-                  {project.impact}
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveProject(isOpen ? null : project.id)}
-                  aria-expanded={isOpen}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 transition-colors hover:text-teal-700"
-                >
-                  Strategy overview
-                  <ArrowUpRight className="h-4 w-4" />
-                </button>
-
-                {isOpen ? (
-                  <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
-                      Technologies used
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((technology) => (
-                        <span
-                          key={technology}
-                          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
-                        >
-                          <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
-                          {technology}
-                        </span>
-                      ))}
+                  {/* Project Title & Subtitle */}
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-teal-50 rounded-2xl border border-teal-100 text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition">
+                      <Icon className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm font-semibold text-teal-600 mt-0.5">
+                        {project.subtitle}
+                      </p>
                     </div>
                   </div>
-                ) : null}
-              </article>
+
+                  {/* Description */}
+                  <p className="mt-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Bullet Highlights */}
+                  <ul className="mt-6 space-y-2.5">
+                    {project.highlights.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                        <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer Metadata */}
+                <div className="mt-8 pt-6 border-t border-slate-200/80 flex items-center justify-between">
+                  <span className="text-xs text-slate-500 font-medium">
+                    Built by <strong className="text-slate-800">{project.developer}</strong>
+                  </span>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-teal-600 group-hover:text-teal-700 transition"
+                  >
+                    Discuss similar project
+                    <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
+              </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
